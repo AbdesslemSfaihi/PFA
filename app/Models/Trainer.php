@@ -5,21 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Subject extends Model
+class Trainer extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        'name',
+        'birthdate',
+        'email',
+        'password',
+        'phone',
+        'image'
     ];
 
-    public function modules()
+    public function subjects()
     {
-        return $this->belongsToMany(Module::class);
-    }
-
-    public function trainers()
-    {
-        return $this->belongsToMany(Trainer::class);
+        return $this->belongsToMany(Subject::class);
     }
 
     public function sessions()
